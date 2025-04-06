@@ -35,7 +35,7 @@ StreamLine is a real-time, full-stack chat web application designed to offer fas
 
 ---
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ```bash
 # 1. Clone the repository
