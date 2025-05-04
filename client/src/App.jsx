@@ -10,9 +10,7 @@ import { authContext } from "./context/authContext.js";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth, onlineUsers } = authContext();
-
   console.log("Printing all online uers", onlineUsers)
-
   useEffect(() => {
     checkAuth();
 
