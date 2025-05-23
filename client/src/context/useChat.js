@@ -12,7 +12,7 @@ export const useChat = create((set, get) => ({
   getUsers: async () => {
     set({ isUsersUploading: true });
     try {
-      const res = await axios.get("http://localhost:5000/api/messages/users", { withCredentials: true });
+      const res = await axios.get("https://streamline-vpoj.onrender.com/api/messages/users", { withCredentials: true });
       console.log("Fetched users:", res.data);
       set({ users: res.data });
     } catch (error) {
@@ -25,7 +25,7 @@ export const useChat = create((set, get) => ({
   getMessages: async (userId) => {
     set({ isMessagesUploading: true, messages: [] }); // <- clear messages first
     try {
-      const res = await axios.get(`http://localhost:5000/api/messages/${userId}`, {
+      const res = await axios.get(`https://streamline-vpoj.onrender.com/api/messages/${userId}`, {
         withCredentials: true,
       });
   
@@ -51,7 +51,7 @@ export const useChat = create((set, get) => ({
   
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/messages/send/${selectedUser._id}`,
+        `https://streamline-vpoj.onrender.com/api/messages/send/${selectedUser._id}`,
         messageData,
         { withCredentials: true }
       );

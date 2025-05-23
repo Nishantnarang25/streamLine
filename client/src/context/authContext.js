@@ -15,7 +15,7 @@ export const authContext = create((set, get) => ({
         try {
             console.log("Checking authentication...");
 
-            const response = await axios.get("http://localhost:5000/api/auth/check", {
+            const response = await axios.get("https://streamline-vpoj.onrender.com/api/auth/check", {
                 withCredentials: true, // this allows sending cookies
             });
 
@@ -38,7 +38,7 @@ export const authContext = create((set, get) => ({
         set({ isSigningUp: true });
 
         try {
-            const user = await axios.post("http://localhost:5000/api/auth/signup", data, { withCredentials: true });
+            const user = await axios.post("https://streamline-vpoj.onrender.com/api/auth/signup", data, { withCredentials: true });
             set({ authUser: user.data, isSigningUp: false });
 
             get().connectSocket()
@@ -57,7 +57,7 @@ export const authContext = create((set, get) => ({
 
         try {
             const response = await axios.post(
-                "http://localhost:5000/api/auth/login",
+                "https://streamline-vpoj.onrender.com/api/auth/login",
                 data,
                 { withCredentials: true } // Allow sending cookies
             );
@@ -77,7 +77,7 @@ export const authContext = create((set, get) => ({
 
     logout: async () => {
         try {
-            await axios.post("http://localhost:5000/api/auth/logout", {}, { withCredentials: true });
+            await axios.post("/api/auth/logout", {}, { withCredentials: true });
             set({ authUser: null }); //set({ authUser: null });
             get().disconnectSocket();
 
@@ -89,7 +89,7 @@ export const authContext = create((set, get) => ({
     updateProfile: async (data)=>{
         set({isUpdatingProfile: true});
         try{
-            const response = await axios.put("http://localhost:5000/api/auth/updateUser", data, {withCredentials: true} )
+            const response = await axios.put("/api/auth/updateUser", data, {withCredentials: true} )
             set({authUser: response.data})
         } catch (error){
             console.log("Error occured in updateProfile in authContext", error.message)
@@ -105,7 +105,7 @@ export const authContext = create((set, get) => ({
 
         if(!authUser || get().socket?.connected) return ;  //if user isnnot loggedin or socket is already connected simply return
 
-        const socket = io("http://localhost:5000", { 
+        const socket = io("https://streamline-vpoj.onrender.com", { 
             query:{
                 userId: authUser._id //passing the user Id
             }
