@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 10000;
 
 //this is used to allow cross origin req means allowing res from different domains
 const corsOptions = {
-  origin: 'http://localhost:5173', // Allow frontend URL
+  origin: 'https://stream-line-new.vercel.app', // Allow frontend URL
   credentials: true, // Allow cookies to be sent along with the request
 };
 
