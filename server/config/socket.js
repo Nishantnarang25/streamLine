@@ -9,10 +9,15 @@ const server = http.createServer(app); //creating an http server
 
 //creating a socket.io server
 const io = new Server(server, {
-    cors:{
-        origin: ["http://localhost:5173"] //connecting with the frontend
+    cors: {
+        origin: [
+            "http://localhost:5173",            // for local development
+            "https://stream-line-new.vercel.app" // for deployed frontend
+        ],
+        credentials: true
     }
-})
+});
+
 
 
 export function getReceiverSocket(userId){
