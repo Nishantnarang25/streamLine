@@ -9,7 +9,7 @@ import {app, server} from "./config/socket.js"
 
 dotenv.config();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 
 //this is used to allow cross origin req means allowing res from different domains
 const corsOptions = {
