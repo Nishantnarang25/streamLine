@@ -5,8 +5,7 @@ import { FaUserCircle } from "react-icons/fa";
 
 
 const ChatHeader = () => { 
-   
-  
+     
   const { selectedUser, setSelectedUser } = useChat();
   const { onlineUsers } = authContext();
 
